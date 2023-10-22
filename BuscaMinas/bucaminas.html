@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .row {
+        display: flex;
+    }
+    .box {
+        width: 50px;
+        height: 50px;
+        background-color: lightblue;
+        margin: 1px;
+    }
+</style>
+<body>
+    <script>
+
+
+        function canvasBuscaminas(filas, columnas) {
+            // Obtener el contenedor del tablero
+            const tablero = document.getElementById("tablero");
+
+            // Limpiar el contenido anterior del tablero
+            tablero.innerHTML = "";
+
+            // Crear las filas y casillas del tablero
+            for (let i = 0; i < filas; i++) {
+                const row = document.createElement("div");
+                row.classList.add("row");
+
+                for (let j = 0; j < columnas; j++) {
+                    const casilla = document.createElement("div");
+                    casilla.classList.add("box");
+                    row.appendChild(casilla);
+                }
+
+                tablero.appendChild(row);
+            }
+        }
+                
+    </script>
+
+    <input type="text" id="filas" placeholder="Numero de filas">
+    <input type="text" id="columnas" placeholder="Numero de Columnas">
+    <button onclick="canvasBuscaminas(parseInt(document.getElementById('filas').value), parseInt(document.getElementById('columnas').value))">Crear tableros</button>
+
+    <div id="tablero"></div>
+</body>
+</html>
